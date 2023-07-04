@@ -1,0 +1,33 @@
+<div class="message-component">
+    <h2>Messages</h2>
+    <!-- Button trigger modal -->
+    <div class="clearpopup">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#messageModal">
+            Clear Message
+        </button>
+    </div>
+
+    <div *ngIf="messageService.messages.length">
+        <!-- Modal -->
+        <div class="modal fade" id="messageModal" aria-labelledby="messageModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="messageModal">Clear Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Do you want to clear a message?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"
+                            (click)="messageService.clearDialog()">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicemessage" *ngFor="let message of messageService.messages">{{ message }}</div>
+    </div>
+</div>

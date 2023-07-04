@@ -1,0 +1,26 @@
+/* HeroDetailComponent's private CSS styles */
+label {
+  color: #435960;
+  font-weight: bold;
+}
+
+input {
+  font-size: 1em;
+  padding: .5rem;
+  margin: 1rem;
+}
+
+button {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-inline: 20px;
+  padding: .5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.details {
+  margin: 5%;
+}

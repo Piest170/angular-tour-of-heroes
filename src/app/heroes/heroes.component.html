@@ -1,0 +1,43 @@
+<div class="hero-component">
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{ hero.id }}">
+        <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+      </a>
+      <button type="button" id="delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+        x
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="deleteModal" aria-labelledby="deleteModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModal">Delete Hero</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Do you want to Delete this Hero?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="delete(hero)">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value = ''">
+    Add hero
+  </button>
+</div>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
